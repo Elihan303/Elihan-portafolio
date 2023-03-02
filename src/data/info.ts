@@ -1,10 +1,10 @@
 export const info = {
-  baseUrl: "https://astro-portfolio-uzair.vercel.app",
+  baseUrl: "",
   name: "Elihan Domingo Tejada Hilario",
   jobDescription: "Software Engineer",
   about: `Soy ingeniero de software y vivo en Santo Domingo, Republica Dominicana.
    Me encanta la programacion. He podido acumular 2 años de experiencia en desarrollo de software.
-   Tengo 1 año de experiencia en tecnologias como Javascript, React con Typescript, C# .NET, SQL, SQL SERVER, entre otras tecnologias. Cuento con una certificacion en Javascript de parte la organizacion de FreeCodeCamp. Aun así, aprendo continuamente y nunca dejo de explorar nuevas tecnologías.Por lo tanto aun sigo aprendiendo nuevas tecnologias como Astro Build entre otras.
+   Tengo 1 año de experiencia en tecnologias como Javascript, React con Typescript, C# .NET, SQL, SQL SERVER, entre otras tecnologias. Cuento con una certificacion en Javascript de parte la organizacion de FreeCodeCamp. Aun así, aprendo continuamente y nunca dejo de explorar nuevas tecnologías. Por lo tanto aun sigo aprendiendo nuevas tecnologias como Astro Build entre otras.
   `,
 
   experience: [
@@ -16,9 +16,9 @@ export const info = {
       description: [
         "- Desarrollo de pantallas y componentes UI para la aplicaciónes web utilizando React,Typescript y DevExtreme.",
         "- Desarrollo de API con C# .NET usado arquitectura Clean Code e inyecciones de dependencias.",
-        "- Manejo de bases de datos con SQL y SQL Server."
+        "- Manejo de bases de datos con SQL y SQL Server.",
       ],
-    }
+    },
   ],
 
   education: [
@@ -36,10 +36,8 @@ export const info = {
       location: "Santo Domingo, Republica Dominicano",
       startDate: "Ene. 2020",
       endDate: "Ago. 2022",
-      description: [
-        "Tecnologo en software",
-      ],
-    }
+      description: ["Tecnologo en software"],
+    },
   ],
 
   socialMedia: {
@@ -52,28 +50,28 @@ export const info = {
 
   projects: [
     {
-      title: "Landing Page",
+      title: "Landing Page (Web)",
       isFeatured: true,
       thumbnail: "assets/images/astroLanding.jpeg",
       githubUrl: "https://github.com/Elihan303/Landing-page-astro",
       liveUrl: "https://elihan303.github.io/Landing-page-astro/",
     },
     {
-      title: "Precios Crypto",
+      title: "Precios Crypto (Web)",
       isFeatured: true,
       thumbnail: "assets/images/preciosCrypto.jpeg",
       githubUrl: "https://github.com/Elihan303/Precios-crypto",
       liveUrl: "https://precios-cryptos.netlify.app/",
     },
     {
-      title: "Task App",
+      title: "Movie Inc (Mobile App)",
       isFeatured: true,
-      thumbnail: "assets/images/task-app.jpeg",
-      githubUrl: "https://github.com/Elihan303/task-app-react",
-      liveUrl: "https://tasks-app-react.netlify.app/",
+      thumbnail: "assets/images/movie-inc.png",
+      githubUrl: "https://github.com/Elihan303/movies-inc",
+      liveUrl: "",
     },
     {
-      title: "Galeria de imagenes",
+      title: "Galeria de imagenes (Web)",
       isFeatured: true,
       thumbnail: "assets/images/galeriaDeImagenes.jpeg",
       githubUrl: "https://github.com/Elihan303/Galeria-de-imagenes",
@@ -82,14 +80,14 @@ export const info = {
     {
       title: "App de reconocimiento facil (Desktop)",
       isFeatured: true,
-      thumbnail: "assets/images/astro-portfolio.png",
+      thumbnail: "assets/images/void.png",
       githubUrl: "https://github.com/Elihan303/App_reconocimiento_facial",
       liveUrl: "",
     },
     {
       title: "Sistema de visista (Desktop)",
       isFeatured: true,
-      thumbnail: "assets/images/astro-portfolio.png",
+      thumbnail: "assets/images/void.png",
       githubUrl: "https://github.com/Elihan303/Sistema_Visitas",
       liveUrl: "",
     },

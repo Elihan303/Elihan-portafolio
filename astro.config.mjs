@@ -15,6 +15,4 @@ export default defineConfig({
     }),
     robotsTxt(),
   ],
-  site: "https://Elihan303.github.io",
-  base: "/Elihan-portafolio",
 });
