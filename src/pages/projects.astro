@@ -4,24 +4,29 @@ import { info } from "@data";
 import ProjectsWrapper from "@components/general/ProjectsWrapper.astro";
 import MetaHead from "@components/general/MetaHead.astro";
 import Layout from "@layouts/Layout.astro";
-
-const Projects = info.projects.map((project) => project);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <MetaHead
       title={"Projects"}
-      description={"All projects are available in this page."}
+      description={"Todos los proyectos de Elihan"}
       ogImageUrl={"/assets/images/profile.png"}
     />
   </head>
 
   <body>
     <Layout>
-      <h1 style="line-height: 1.2;">Proyectos</h1>
-      <ProjectsWrapper projects={Projects} />
+      <section data-animate="fade-up" class="pt-8">
+        <h1 class="text-4xl sm:text-5xl font-bold font-outfit mb-2 dark:text-light">
+          Proyectos
+        </h1>
+        <p class="dark:text-gray mb-10">
+          Todos los proyectos en los que he trabajado
+        </p>
+        <ProjectsWrapper projects={info.projects} />
+      </section>
     </Layout>
   </body>
 </html>

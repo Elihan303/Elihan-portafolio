@@ -1,13 +1,56 @@
 ---
 import { IHeroProps } from "@types";
+import HeroSocial from "@components/general/HeroSocial.astro";
 
-const { name, about } = Astro.props as IHeroProps;
+const { name, role, about, socialMedia } = Astro.props as IHeroProps;
 ---
 
-<section>
-  <p class="dark:text-light mt-[117px]">Hola, Soy</p>
-  <h1 class="main-heading">{name}</h1>
-  <p class="dark:text-light text-justify text-lg mb-16">
-    {about}
-  </p>
+<section class="min-h-[calc(100vh-80px)] sm:min-h-[calc(100vh-123px)] flex items-center">
+  <div class="grid md:grid-cols-2 gap-12 items-center w-full">
+    <div data-animate="fade-up">
+      <p class="text-lg dark:text-gray mb-2">Hola, Soy</p>
+      <h1 class="main-heading text-4xl sm:text-6xl lg:text-7xl !m-0 !mb-4">{name}</h1>
+      <p class="text-xl font-outfit font-semibold text-blue mb-6">{role}</p>
+      <p class="dark:text-gray text-justify text-base mb-8 leading-relaxed max-w-lg">
+        {about}
+      </p>
+      <HeroSocial socialMedia={socialMedia} />
+    </div>
+    <div data-animate="fade-up" class="flex justify-center md:justify-end">
+      <div class="relative">
+        <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-blue/30 shadow-2xl shadow-blue/20">
+          <img
+            src="/assets/images/profile.png"
+            alt={name}
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-blue/10 rounded-full blur-xl"></div>
+        <div class="absolute -top-4 -left-4 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"></div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  .main-heading {
+    display: inline-block;
+    font-style: normal;
+    font-weight: 600;
+    background: linear-gradient(89.81deg, #9845e8 -1.72%, #33d2ff 54.05%, #dd5789 99.78%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    background-size: 150% 150%;
+    animation: gradient 15s ease infinite;
+    line-height: 1.2;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+</style>
