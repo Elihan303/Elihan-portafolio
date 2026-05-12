@@ -32,11 +32,6 @@ export interface IExperiences {
   details: IExperience[];
 }
 
-export interface ISkillCategory {
-  category: string;
-  skills: string[];
-}
-
 export interface IProject {
   title: string;
   description?: string;

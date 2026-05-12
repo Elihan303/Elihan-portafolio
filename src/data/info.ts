@@ -40,22 +40,18 @@ export const info = {
   ],
 
   skills: [
-    {
-      category: "Frontend",
-      skills: ["React", "TypeScript", "JavaScript", "Astro", "Tailwind CSS"],
-    },
-    {
-      category: "Backend",
-      skills: ["C#", ".NET", "Node.js"],
-    },
-    {
-      category: "Base de Datos",
-      skills: ["SQL", "SQL Server"],
-    },
-    {
-      category: "Herramientas",
-      skills: ["Git", "DevExtreme"],
-    },
+    "React",
+    "TypeScript",
+    "JavaScript",
+    "Astro",
+    "Tailwind CSS",
+    "C#",
+    ".NET",
+    "Node.js",
+    "SQL",
+    "SQL Server",
+    "Git",
+    "DevExtreme",
   ],
 
   socialMedia: {
