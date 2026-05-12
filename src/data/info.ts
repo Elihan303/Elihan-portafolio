@@ -2,20 +2,42 @@ export const info = {
   baseUrl: "",
   name: "Elihan Domingo Tejada Hilario",
   role: "Software Engineer",
-  about: `Soy ingeniero de software con experiencia en desarrollo web y movil. Especializado en React, TypeScript y C# .NET. Certificado por FreeCodeCamp y siempre aprendiendo nuevas tecnologías.
+  about: `Desarrollador frontend con experiencia en React, React Native, TypeScript y C# .NET. Actualmente construyendo soluciones financieras innovadoras en Qik Banco Digital Dominicano. Certificado por FreeCodeCamp y siempre aprendiendo nuevas tecnologías.
   `,
   profileImage: "/assets/images/profile.png",
 
   experience: [
     {
+      name: "Qik Banco Digital Dominicano",
+      location: "Santo Domingo, Republica Dominicana",
+      startDate: "2024",
+      endDate: "Presente",
+      description: [
+        "Desarrollo frontend mobile con React Native, TypeScript y GraphQL.",
+        "Implementación de Apple Pay y Google Pay.",
+        "Desarrollo de funcionalidades de tarjetas de crédito (garantizada, virtual, adicionales).",
+        "Trabajo con arquitectura Atomic Design, Figma y monitoreo con Dynatrace.",
+      ],
+    },
+    {
       name: "Camsoft",
       location: "Santo Domingo, Republica Dominicana",
       startDate: "Feb. 2022",
-      endDate: "Presente",
+      endDate: "2024",
       description: [
         "Desarrollo de pantallas y componentes UI con React, TypeScript y DevExtreme.",
         "Desarrollo de API con C# .NET usando Clean Code e inyección de dependencias.",
         "Manejo de bases de datos SQL y SQL Server.",
+      ],
+    },
+    {
+      name: "Honeycomb Technology",
+      location: "Santo Domingo, Republica Dominicana",
+      startDate: "2021",
+      endDate: "2022",
+      description: [
+        "Análisis y desarrollo de software.",
+        "Implementación de soluciones tecnológicas para clientes.",
       ],
     },
   ],
@@ -25,10 +47,8 @@ export const info = {
       name: "Universidad Iberoamericana",
       location: "Santo Domingo, Republica Dominicana",
       startDate: "Ene. 2022",
-      endDate: "Presente",
-      description: [
-        "Ingeniería en Tecnologías de la Información y la Comunicación (TIC)",
-      ],
+      endDate: "Sep. 2025",
+      description: ["Ingeniería en Tecnologías Computacionales (TIC)"],
     },
     {
       name: "Instituto Tecnológico de Las Américas",
@@ -40,18 +60,23 @@ export const info = {
   ],
 
   skills: [
+    "React Native",
     "React",
     "TypeScript",
     "JavaScript",
+    "GraphQL",
     "Astro",
     "Tailwind CSS",
     "C#",
     ".NET",
-    "Node.js",
+    "Entity Framework",
     "SQL",
     "SQL Server",
     "Git",
+    "GitLab",
+    "Figma",
     "DevExtreme",
+    "Sass",
   ],
 
   socialMedia: {
@@ -74,7 +99,8 @@ export const info = {
     },
     {
       title: "Precios Crypto (Web)",
-      description: "Aplicación web para consultar precios de criptomonedas en tiempo real.",
+      description:
+        "Aplicación web para consultar precios de criptomonedas en tiempo real.",
       isFeatured: true,
       thumbnail: "assets/images/preciosCrypto.jpeg",
       technologies: ["React", "TypeScript", "API"],
