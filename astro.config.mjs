@@ -1,17 +1,11 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
+import netlify from "@astrojs/netlify";
 
-// https://astro.build/config
-import netlify from "@astrojs/netlify/functions";
-
-// https://astro.build/config
-
-// https://astro.build/config
 export default defineConfig({
   integrations: [
-    tailwind(),
     sitemap({
       changefreq: "weekly",
       priority: 0.7,
@@ -22,4 +16,7 @@ export default defineConfig({
   ],
   output: "server",
   adapter: netlify(),
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

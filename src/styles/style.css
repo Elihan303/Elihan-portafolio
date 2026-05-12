@@ -4,9 +4,19 @@
 /* ========== import custom styles ========== */
 @import "custom-styles.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #111111;
+  --color-light: #ffffff;
+  --color-blue: #33d2ff;
+  --color-gray: #c4c4c4;
+  --color-dark-gray: #1a1a1a;
+  --font-inter: "Inter", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+}
+
+@custom-variant dark (&:where([data-theme="dark"] *));
 
 /* ========== tailwind custom styles ========== */
 @layer components {
@@ -25,7 +35,7 @@
     @apply font-outfit;
   }
   h1 {
-    @apply text-6xl sm:text-8xl main-heading;
+    @apply text-6xl sm:text-8xl;
   }
   h2 {
     @apply text-xl font-semibold;
