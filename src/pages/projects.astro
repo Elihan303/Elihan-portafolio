@@ -10,7 +10,7 @@ import Layout from "@layouts/Layout.astro";
 <html lang="es">
   <head>
     <MetaHead
-      title={"Projects"}
+      title={"Proyectos"}
       description={"Todos los proyectos de Elihan"}
       ogImageUrl={"/assets/images/profile.png"}
     />
@@ -18,11 +18,12 @@ import Layout from "@layouts/Layout.astro";
 
   <body>
     <Layout>
-      <section data-animate="fade-up" class="pt-8">
-        <h1 class="text-4xl sm:text-5xl font-bold font-outfit mb-2 dark:text-light">
+      <section data-animate="fade-up" class="pt-16 pb-8 sm:pt-24 sm:pb-12">
+        <p class="text-sm font-semibold tracking-[0.2em] text-blue mb-3">PORTAFOLIO</p>
+        <h1 class="text-4xl sm:text-6xl font-bold font-outfit mb-3 dark:text-light">
           Proyectos
         </h1>
-        <p class="dark:text-gray mb-10">
+        <p class="dark:text-gray mb-12 max-w-xl leading-7">
           Todos los proyectos en los que he trabajado
         </p>
         <ProjectsWrapper projects={info.projects} />

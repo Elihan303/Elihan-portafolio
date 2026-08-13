@@ -3,11 +3,12 @@ import { info } from "@data";
 import { createLogo } from "@utils";
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-light/80 dark:bg-dark/80 border-b border-gray/10">
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-dark/5 bg-light/70 shadow-[0_6px_30px_rgba(17,17,17,0.03)] backdrop-blur-xl dark:border-white/10 dark:bg-dark/70 dark:shadow-none">
   <div class="container flex items-center justify-between h-[80px]">
     <a
       class="text-2xl dark:text-light font-semibold font-outfit tracking-tight"
       href="/"
+      aria-label="Ir al inicio"
     >
       {createLogo(info.name)}<span class="text-blue">.</span>
     </a>
@@ -15,15 +16,25 @@ import { createLogo } from "@utils";
       <ul class="flex items-center gap-1">
         <li>
           <a
-            class="px-4 py-2 dark:text-light/80 dark:hover:text-light text-dark/80 hover:text-dark text-lg rounded-lg hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
+            href="/"
+            aria-current={Astro.url.pathname === "/" ? "page" : undefined}
+            class:list={["nav-link nav-link--home", Astro.url.pathname === "/" && "nav-link--active"]}
+          >Inicio</a>
+        </li>
+        <li>
+          <a
+            aria-current={Astro.url.pathname === "/projects" ? "page" : undefined}
+            class:list={["nav-link", Astro.url.pathname === "/projects" && "nav-link--active"]}
             href="/projects"
           >Proyectos</a>
         </li>
         <li>
           <button
-            aria-label="theme-button"
+            aria-label="Cambiar entre tema claro y oscuro"
+            aria-pressed="false"
             id="theme-button"
-            class="dark:text-light/80 rounded-lg p-2 ml-1 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
+            type="button"
+            class="theme-toggle"
           ></button>
         </li>
       </ul>
@@ -36,8 +47,7 @@ import { createLogo } from "@utils";
   const sun = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
   const themeButton = document.getElementById("theme-button");
   const browserTheme = document.querySelector('[name="theme-color"]');
-  let isDark;
-  const theme = (() => {
+  const getPreferredTheme = () => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
       return localStorage.getItem("theme");
     }
@@ -45,36 +55,23 @@ import { createLogo } from "@utils";
       return "dark";
     }
     return "light";
-  })();
-
-  if (theme === "light") {
-    document.documentElement.setAttribute("data-theme", "light");
-    isDark = true;
-    themeButton.innerHTML = moon;
-    if (browserTheme) browserTheme.content = "#FFFFFF";
-  } else {
-    document.documentElement.setAttribute("data-theme", "dark");
-    isDark = false;
-    themeButton.innerHTML = sun;
-    if (browserTheme) browserTheme.content = "#111111";
-  }
-  window.localStorage.setItem("theme", theme);
-
-  const darkModeHandler = () => {
-    if (isDark) {
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.theme = "dark";
-      isDark = false;
-      themeButton.innerHTML = sun;
-      if (browserTheme) browserTheme.content = "#111111";
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-      localStorage.theme = "light";
-      isDark = true;
-      themeButton.innerHTML = moon;
-      if (browserTheme) browserTheme.content = "#FFFFFF";
-    }
   };
 
-  themeButton.addEventListener("click", darkModeHandler);
+  const applyTheme = (theme) => {
+    const isDark = theme === "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+    window.localStorage.setItem("theme", theme);
+    themeButton.setAttribute("aria-pressed", String(isDark));
+    themeButton.innerHTML = isDark ? sun : moon;
+    if (browserTheme) browserTheme.content = isDark ? "#111111" : "#FFFFFF";
+  };
+
+  applyTheme(getPreferredTheme());
+
+  const toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    applyTheme(currentTheme === "dark" ? "light" : "dark");
+  };
+
+  themeButton.addEventListener("click", toggleTheme);
 </script>

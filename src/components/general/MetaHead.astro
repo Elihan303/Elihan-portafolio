@@ -3,6 +3,8 @@ import { IMetaHead } from "@types";
 import { info } from "@data";
 
 const { title, description, ogImageUrl } = Astro.props as IMetaHead;
+const siteUrl = info.baseUrl || Astro.url.origin;
+const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
 ---
 
 <meta charset="UTF-8" />
@@ -23,9 +25,7 @@ const { title, description, ogImageUrl } = Astro.props as IMetaHead;
 
 <!-- Primary Meta Tags -->
 {
-  title && (
-    <link rel="canonical" href={`${info.baseUrl}${Astro.url.pathname}`} />
-  )
+  title && <link rel="canonical" href={pageUrl} />
 }
 {title && <title>{`${title} - ${info.name}`}</title>}
 {title && <meta name="title" content={`${title} - ${info.name}`} />}
@@ -35,32 +35,32 @@ const { title, description, ogImageUrl } = Astro.props as IMetaHead;
 {title && <meta property="og:type" content="website" />}
 {
   title && (
-    <meta property="og:url" content={`${info.baseUrl}${Astro.url.pathname}`} />
+    <meta property="og:url" content={pageUrl} />
   )
 }
 {title && <meta property="og:title" content={`${title} - ${info.name}`} />}
 {description && <meta property="og:description" content={description} />}
 {
   ogImageUrl && (
-    <meta property="og:image" content={`${info.baseUrl}${ogImageUrl}`} />
+    <meta property="og:image" content={new URL(ogImageUrl, siteUrl).href} />
   )
 }
 
 <!-- Twitter -->
-{title && <meta property="twitter:card" content="summary_large_image" />}
+{title && <meta name="twitter:card" content="summary_large_image" />}
 {
   title && (
     <meta
-      property="twitter:url"
-      content={`${info.baseUrl}${Astro.url.pathname}`}
+      name="twitter:url"
+      content={pageUrl}
     />
   )
 }
-{title && <meta property="twitter:title" content={`${title} - ${info.name}`} />}
-{description && <meta property="twitter:description" content={description} />}
+{title && <meta name="twitter:title" content={`${title} - ${info.name}`} />}
+{description && <meta name="twitter:description" content={description} />}
 {
   ogImageUrl && (
-    <meta property="twitter:image" content={`${info.baseUrl}${ogImageUrl}`} />
+    <meta name="twitter:image" content={new URL(ogImageUrl, siteUrl).href} />
   )
 }
 

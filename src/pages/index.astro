@@ -28,11 +28,13 @@ const featureProjects = info.projects.filter((p) => p.isFeatured);
         role={info.role}
         about={info.about}
         socialMedia={info.socialMedia}
+        profileImage={info.profileImage}
       />
       <Experience title={"EXPERIENCIA"} details={info.experience} />
       <Experience title={"EDUCACIÓN"} details={info.education} />
       <Skills skills={info.skills} />
       <section data-animate="fade-up" class="mb-16">
+        <p class="text-sm font-semibold tracking-[0.2em] text-blue mb-3">SELECCIÓN</p>
         <h2 class="text-2xl font-bold font-outfit mb-10 flex items-center gap-3">
           <span class="w-2 h-2 rounded-full bg-blue inline-block"></span>
           PROYECTOS DESTACADOS

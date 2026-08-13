@@ -2,32 +2,36 @@
 import { IHeroProps } from "@types";
 import HeroSocial from "@components/general/HeroSocial.astro";
 
-const { name, role, about, socialMedia } = Astro.props as IHeroProps;
+const { name, role, about, socialMedia, profileImage } = Astro.props as IHeroProps;
 ---
 
-<section class="min-h-[calc(100vh-80px)] sm:min-h-[calc(100vh-123px)] flex items-center">
-  <div class="grid md:grid-cols-2 gap-12 items-center w-full">
+<section class="min-h-[calc(100vh-80px)] sm:min-h-[calc(100vh-123px)] flex items-center py-14 sm:py-20">
+  <div class="grid md:grid-cols-2 gap-14 lg:gap-20 items-center w-full">
     <div data-animate="fade-up">
-      <p class="text-lg dark:text-gray mb-2">Hola, Soy</p>
-      <h1 class="main-heading text-4xl sm:text-6xl lg:text-7xl !m-0 !mb-4">{name}</h1>
-      <p class="text-xl font-outfit font-semibold text-blue mb-6">{role}</p>
-      <p class="dark:text-gray text-justify text-base mb-8 leading-relaxed max-w-lg">
+      <p class="inline-flex items-center gap-2 rounded-full border border-blue/30 bg-blue/10 px-3 py-1.5 text-sm font-medium text-dark dark:text-light mb-5">
+        <span class="h-2 w-2 rounded-full bg-blue shadow-[0_0_12px_#33d2ff]"></span>
+        Disponible para nuevos retos
+      </p>
+      <p class="text-lg dark:text-gray mb-2">Hola, soy</p>
+      <h1 class="main-heading text-4xl sm:text-6xl lg:text-7xl !m-0 !mb-5">{name}</h1>
+      <p class="text-xl font-outfit font-semibold text-blue mb-6 tracking-wide">{role}</p>
+      <p class="dark:text-gray text-base mb-8 leading-8 max-w-xl">
         {about}
       </p>
       <HeroSocial socialMedia={socialMedia} />
     </div>
     <div data-animate="fade-up" class="flex justify-center md:justify-end">
-      <div class="relative">
-        <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-blue/30 shadow-2xl shadow-blue/20">
+      <div class="relative p-3 rounded-[2rem] border border-white/70 bg-white/40 shadow-2xl shadow-blue/10 backdrop-blur-sm dark:border-white/10 dark:bg-white/5">
+        <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-[1.5rem] overflow-hidden border border-blue/30 shadow-xl shadow-blue/20">
           <img
-            src="/assets/images/profile.png"
+            src={profileImage ?? "/assets/images/profile.png"}
             alt={name}
             class="w-full h-full object-cover"
             loading="eager"
           />
         </div>
-        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-blue/10 rounded-full blur-xl"></div>
-        <div class="absolute -top-4 -left-4 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"></div>
+        <div class="absolute -bottom-5 -right-5 w-24 h-24 bg-blue/20 rounded-full blur-xl -z-10"></div>
+        <div class="absolute -top-5 -left-5 w-32 h-32 bg-purple-500/20 rounded-full blur-xl -z-10"></div>
       </div>
     </div>
   </div>

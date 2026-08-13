@@ -5,8 +5,9 @@ import Navbar from "@components/general/Navbar.astro";
 import "../styles/style.css";
 ---
 
+<div class="site-background" aria-hidden="true"></div>
 <Navbar />
-<main class="container pt-[80px]">
+<main class="container relative pt-[80px]">
   <slot />
 </main>
 <Footer />
